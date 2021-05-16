@@ -2,18 +2,16 @@
 
 ## usersテーブル
 
-| Column                | Type    | Options                   |
-| --------------------- | ------- | ------------------------- |
-| email                 | string  | null: false               |
-| password              | string  | null: false               |
-| nickname              | string  | null: false, unique: true |
-| last_name             | string  | null: false               |
-| first_name            | string  | null: false               |
-| last_name_kana        | string  | null: false               |
-| first_name_kana       | string  | null: false               |
-| user_birth_date_year  | integer | null: false               |
-| user_birth_date_month | integer | null: false               |
-| user_birth_date_day   | integer | null: false               |
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| nickname           | string  | null: false, unique: true |
+| last_name          | string  | null: false               |
+| first_name         | string  | null: false               |
+| last_name_kana     | string  | null: false               |
+| first_name_kana    | string  | null: false               |
+| user_birth_date    | integer | null: false               |
 
 ### Association
 
@@ -22,17 +20,17 @@
 
 ## itemsテーブル
 
-| Column                   | Type       | Options           |
-| ------------------------ | ---------- | ----------------- |
-| item_name                | string     | null: false       |
-| item_description         | text       | null: false       |
-| item_category            | integer    | null: false       |
-| item_status              | integer    | null: false       |
-| item_shipping_fee_status | integer    | null: false       |
-| item_prefecture          | integer    | null: false       |
-| item_days_to_ship        | integer    | null: false       |
-| item_price               | integer    | null: false       |
-| seller_user              | references | foreign_key: true |
+| Column                      | Type       | Options           |
+| --------------------------- | ---------- | ----------------- |
+| item_name                   | string     | null: false       |
+| item_description            | text       | null: false       |
+| item_category_id            | integer    | null: false       |
+| item_status_id              | integer    | null: false       |
+| item_shipping_fee_status_id | integer    | null: false       |
+| prefecture_id               | integer    | null: false       |
+| item_days_to_ship_id        | integer    | null: false       |
+| item_price                  | integer    | null: false       |
+| user                        | references | foreign_key: true |
 
 （item_image  ActiveStorageで実装）
 
@@ -43,10 +41,10 @@
 
 ## purchase_recordsテーブル
 
-| Column        | Type       | Options           |
-| ------------- | ---------- | ----------------- |
-| buyer_user    | references | foreign_key: true |
-| purchase_item | references | foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 ### Association
 
@@ -59,7 +57,7 @@
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
 | buyer_postal_code  | string     | null: false       |
-| buyer_prefecture   | integer    | null: false       |
+| prefecture_id      | integer    | null: false       |
 | buyer_city         | string     | null: false       |
 | buyer_address      | string     | null: false       |
 | buyer_building     | string     |                   |
