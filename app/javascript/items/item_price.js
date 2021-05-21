@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  if (document.URL.match("items/new")) {
+  if (document.getElementById("item-price") != null) {
     const priceInput = document.getElementById("item-price");
     priceInput.addEventListener("input", () => {
       const inputValue = priceInput.value;
