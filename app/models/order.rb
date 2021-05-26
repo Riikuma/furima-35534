@@ -1,6 +1,7 @@
 class Order
   include ActiveModel::Model
-  attr_accessor :buyer_postal_code, :prefecture_id, :buyer_city, :buyer_address, :buyer_building, :buyer_phone_number, :token, :user_id, :item_id
+  attr_accessor :buyer_postal_code, :prefecture_id, :buyer_city, :buyer_address, :buyer_building, :buyer_phone_number,
+                :token, :user_id, :item_id
 
   with_options presence: true do
     validates :token
@@ -13,6 +14,8 @@ class Order
 
   def save
     purchase_record = PurchaseRecord.create(user_id: user_id, item_id: item_id)
-    ShippingAddress.create(buyer_postal_code: buyer_postal_code, prefecture_id: prefecture_id, buyer_city: buyer_city, buyer_address: buyer_address, buyer_building: buyer_building, buyer_phone_number: buyer_phone_number, purchase_record_id: purchase_record.id)
+    ShippingAddress.create(buyer_postal_code: buyer_postal_code, prefecture_id: prefecture_id, buyer_city: buyer_city,
+                           buyer_address: buyer_address, buyer_building: buyer_building, buyer_phone_number: buyer_phone_number,
+                           purchase_record_id: purchase_record.id)
   end
 end
