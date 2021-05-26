@@ -17,5 +17,6 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :item_days_to_ship
   belongs_to :user
+  has_one :purchase_record
   has_one_attached :item_image
 end
