@@ -8,7 +8,5 @@ FactoryBot.define do
     buyer_address { Faker::Address.street_address }
     buyer_building { Faker::Address.secondary_address }
     buyer_phone_number { Faker::Number.number(digits: 11) }
-    user_id { Faker::Number.within(range: 1..100) }
-    item_id { Faker::Number.within(range: 1..100) }
   end
 end
