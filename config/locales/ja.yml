@@ -28,3 +28,5 @@ ja:
         buyer_address: 番地
         buyer_building: 建物名
         buyer_phone_number: 電話番号
+        user_id: ユーザー情報
+        item_id: 商品情報
